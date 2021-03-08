@@ -1,0 +1,17 @@
+# output
+__pycache__
+*.pyc
+*.brn
+
+#ide
+.vscode
+.history
+
+# build
+/dist
+/build
+/output
+/temp
+
+# app
+stanfordSentimentTreebank
