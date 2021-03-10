@@ -1,4 +1,5 @@
 import os
+import sys
 
 
 class Path:
@@ -14,3 +15,13 @@ class Path:
     @staticmethod
     def create(path):
         os.makedirs(path)
+
+    @staticmethod
+    def read(path):
+        try:
+            with open(os.path.abspath(os.getcwd() + path), 'r') as file:
+                print(file)
+                return file.readlines()
+        except IOError:
+            print('IOError: system will exit now')
+            sys.exit(1)
