@@ -1,12 +1,13 @@
+from helpers.http.server import Server
 from modules.predict.controller import PredictController
 from modules.predict.service import PredictService
-from models.emotion_dictionary import EmotionDictionaryModel
-from models.emotion_label import EmotionLabelModel
-from helpers.http.server import Server
+from models.emotion_test import EmotionTestModel
+from models.emotion_train import EmotionTrainModel
 
-emotion_dictionary_model = EmotionDictionaryModel()
-emotion_label_model = EmotionLabelModel()
-predict_service = PredictService(emotion_dictionary_model, emotion_label_model)
+emotion_test_model = EmotionTestModel()
+emotion_train_model = EmotionTrainModel()
+
+predict_service = PredictService(emotion_test_model, emotion_train_model)
 predict_controller = PredictController(predict_service)
 
 app = Server.getApp()

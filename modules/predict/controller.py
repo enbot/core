@@ -5,11 +5,16 @@ from helpers.http.response import Response
 class PredictController:
 
     def __init__(self, service):
-        trainingData = service.readTrainingData()
-        serializedData = service.serializeTrainingData(trainingData)
-
         self.__service = service
-        self.__dataset = serializedData
+        self.__datasets = service.readTrainingData()
+
+        # teste1 = EmotionTestModel()
+        # teste2 = EmotionTrainModel()
+        # trainingData = service.readTrainingData()
+        # serializedData = service.serializeTrainingData(trainingData)
+
+        # self.__service = service
+        # self.__dataset = serializedData
 
     def handle(self):
         try:
