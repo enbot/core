@@ -4,9 +4,9 @@ from helpers.utils.path import Path
 class DatasetModel:
 
     def __init__(self, file_name, file_extension):
-        self.__file_dir = '/data/emotionsDatasetForNlp/'
         self.__file_name = file_name
         self.__file_extension = file_extension
+        self.__file_dir = '/data/emotionsDatasetForNlp/'
 
     def read(self):
         file_dir = self.__file_dir
