@@ -6,15 +6,10 @@ class PredictController:
 
     def __init__(self, service):
         self.__service = service
-        self.__datasets = service.readTrainingData()
+        self.__training_model = service.createTrainingModel()
 
         # teste1 = EmotionTestModel()
         # teste2 = EmotionTrainModel()
-        # trainingData = service.readTrainingData()
-        # serializedData = service.serializeTrainingData(trainingData)
-
-        # self.__service = service
-        # self.__dataset = serializedData
 
     def handle(self):
         try:
@@ -23,8 +18,6 @@ class PredictController:
 
             if not message:
                 return Response.badRequest('Missing param: Message')
-
-            print(message)
 
             return Response.success({"input": message})
         except ValueError:
