@@ -20,7 +20,6 @@ class Path:
     def read(path):
         try:
             with open(os.path.abspath(os.getcwd() + path), 'r') as file:
-                print(file)
                 return file.readlines()
         except IOError:
             print('IOError: system will exit now')
