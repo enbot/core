@@ -1,4 +1,6 @@
-from helpers.http.server import Server
+from helpers.config.server import Server
 
-Server.startRoutes()
-Server.startApp()
+server = Server()
+
+server.startRoutes()
+server.startApp()
