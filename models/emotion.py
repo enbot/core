@@ -1,4 +1,3 @@
-# import pandas
 import nltk
 
 
@@ -8,13 +7,26 @@ class EmotionModel:
         self.__columns = ['Phrase', 'Emotion']
         self.__unique_words = []
 
-    # def createDataframe(self, dataset):
-    #     dataframe = pandas.DataFrame(dataset)
-    #     dataframe.columns = self.__columns
-    #     return dataframe
+    def createTrainingDataset(self, emotion_base, unique_words):
+        training_base = [(phrase.split(" "), emotion) for (phrase, emotion) in emotion_base]
+        find_features_function = self.__getFindFeaturesFunction(unique_words)
+        training_dataset = nltk.classify.apply_features(find_features_function, training_base)
+        return training_dataset
 
-    def getTrainingDataset(self, emotion_base, unique_words):
+    def createTrainingInput(self, input_phrase, unique_words):
+        input_words = input_phrase.split(" ")
+        find_features_function = self.__getFindFeaturesFunction(unique_words)
+        training_input = find_features_function(input_words)
+        return training_input
 
+    def createTrainingModel(self, complete_train_dataset, complete_test_dataset):
+        training_model = nltk.NaiveBayesClassifier.train(complete_train_dataset)
+        print(training_model.labels())
+        print(training_model.show_most_informative_features(40))
+        print(nltk.classify.accuracy(training_model, complete_test_dataset))
+        return training_model
+
+    def __getFindFeaturesFunction(self, unique_words):
         def findFeatures(document):
             words_set = set(document)
             features_set = {}
@@ -22,6 +34,4 @@ class EmotionModel:
                 features_set[word] = (word in words_set)
             return features_set
 
-        training_dataset = nltk.classify.apply_features(findFeatures, emotion_base)
-
-        return training_dataset
+        return findFeatures
