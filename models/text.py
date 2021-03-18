@@ -7,20 +7,24 @@ class TextModel:
         self.__stopwords = nltk.corpus.stopwords.words('english')
         self.__stemmer = nltk.stem.PorterStemmer()
 
-    def getUniqueWords(self, emotions_dataset):
+    def getDatasetUniqueWords(self, emotions_dataset):
         all_phrases = " ".join(phrase for (phrase, emotion) in emotions_dataset)
         all_words = all_phrases.split(" ")
         words_frequency_distribution = nltk.FreqDist(all_words)
         unique_words = words_frequency_distribution.keys()
         return unique_words
 
-    def applyModifiers(self, emotions_dataset):
+    def applyDatasetModifiers(self, emotions_dataset):
         new_emotions_dataset = []
         for (phrase, emotion) in emotions_dataset:
-            stopword_phrase = self.__removeStopwords(phrase)
-            stemmer_phrase = self.__applyStemmer(stopword_phrase)
-            new_emotions_dataset.append((stemmer_phrase, emotion))
+            new_phrase = self.applyTextModifiers(phrase)
+            new_emotions_dataset.append((new_phrase, emotion))
         return new_emotions_dataset
+
+    def applyTextModifiers(self, phrase):
+        stopword_phrase = self.__removeStopwords(phrase)
+        stemmer_phrase = self.__applyStemmer(stopword_phrase)
+        return stemmer_phrase
 
     def __removeStopwords(self, phrase):
         lower_phrase = phrase.lower()
