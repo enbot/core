@@ -3,10 +3,6 @@ import nltk
 
 class EmotionModel:
 
-    def __init__(self):
-        self.__columns = ['Phrase', 'Emotion']
-        self.__unique_words = []
-
     def createTrainingDataset(self, emotion_base, unique_words):
         training_base = [(phrase.split(" "), emotion) for (phrase, emotion) in emotion_base]
         find_features_function = self.__getFindFeaturesFunction(unique_words)
