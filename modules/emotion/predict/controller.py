@@ -25,33 +25,43 @@ class PredictController:
             if not message:
                 return Response.badRequest('Missing param: Message')
 
-            prediction = self.__predict(message)
+            prediction = self.__getPrediction(message)
+            result = self.__getResult(prediction)
 
             response = {
                 "message": message,
                 "prediction": prediction,
+                "result": result,
             }
 
             return Response.success(response)
         except ValueError:
             return Response.serverError(ValueError)
 
-    def __predict(self, input_message):
-
-        print('start prediction')
-
+    def __getPrediction(self, message):
         training_datasets = self.__training_datasets
         training_model = self.__training_model
-        training_input = self.__service.createInputMessage(input_message, training_datasets)
+        training_input = self.__service.createInputMessage(message, training_datasets)
+        training_result = training_model.prob_classify(training_input)
+        available_emotions = training_result.samples()
 
-        test = training_model.prob_classify(training_input)
+        predictions = {}
 
-        for classe in test.samples():
-            print('%s: %f' % (classe, test.prob(classe)))
+        for emotion in available_emotions:
+            emotion_probability = training_result.prob(emotion)
+            emotion_rounded = float("{:.2f}".format(emotion_probability))
+            predictions[emotion] = emotion_rounded
 
-        # distribuicao = training_model.prob_classify(novo)
-        # for classe in distribuicao.samples():
-        #     print('%s: %f' % (classe, distribuicao.prob(classe)))
+        return predictions
 
-        # self.__service.getEmotionPredcit(message, self.__training_model)
-        return 'ss'
+    def __getResult(self, prediction):
+        result_emotion = ''
+        result_percentage = 0
+
+        for prediction_emotion in prediction:
+            prediction_percentage = prediction[prediction_emotion]
+            if prediction_percentage > result_percentage:
+                result_emotion = prediction_emotion
+                result_percentage = prediction_percentage
+
+        return result_emotion
