@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0.1" encoding="UTF-8">
+    <category>
+        <pattern>LOAD AIML B</pattern>
+        <template>
+            <learn>aiml/common/commands.aiml</learn>
+            <learn>aiml/common/defaults.aiml</learn>
+            <learn>aiml/emotions/angry.aiml</learn>
+            <learn>aiml/emotions/sad.aiml</learn>
+            <learn>aiml/emotions/angry.aiml</learn>
+            <learn>aiml/emotions/sad.aiml</learn>
+            <learn>aiml/emotions/angry.aiml</learn>
+            <learn>aiml/emotions/sad.aiml</learn>
+        </template>
+    </category>
+</aiml>

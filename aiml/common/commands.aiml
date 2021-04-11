@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0.1" encoding="UTF-8">
+
+    <category>
+        <pattern>TURN YOUR EMOTION INTO JOY</pattern>
+        <template>
+            <think>
+                <set name="state">joy</set>
+            </think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>TURN YOUR EMOTION INTO SADNESS</pattern>
+        <template>
+            <think>
+                <set name="state">sadness</set>
+            </think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>TURN YOUR EMOTION INTO LOVE</pattern>
+        <template>
+            <think>
+                <set name="state">love</set>
+            </think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>TURN YOUR EMOTION INTO SURPRISE</pattern>
+        <template>
+            <think>
+                <set name="state">surprise</set>
+            </think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>TURN YOUR EMOTION INTO FEAR</pattern>
+        <template>
+            <think>
+                <set name="state">fear</set>
+            </think>
+        </template>
+    </category>
+
+    <category>
+        <pattern>TURN YOUR EMOTION INTO ANGER</pattern>
+        <template>
+            <think>
+                <set name="state">anger</set>
+            </think>
+        </template>
+    </category>
+
+</aiml>
