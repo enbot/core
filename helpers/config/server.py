@@ -1,5 +1,6 @@
 from flask import Flask
 from modules.emotion.router import EmotionRouter
+from modules.response.router import ResponseRouter
 
 
 class Server:
@@ -8,6 +9,7 @@ class Server:
         self.__app = Flask(__name__)
         self.__routes = [
             EmotionRouter,
+            ResponseRouter,
         ]
 
     def startApp(self):
