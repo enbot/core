@@ -12,7 +12,3 @@ __pycache__
 /build
 /output
 /temp
-
-# app
-stanfordSentimentTreebank
-emotionsDatasetForNlp
