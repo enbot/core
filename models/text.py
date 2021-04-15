@@ -3,14 +3,12 @@ import re
 
 from nltk.sentiment.util import mark_negation
 
+
 class TextModel:
 
     def __init__(self):
-        print('starting...')
         self.__allowed_characters = re.compile('[^a-zA-Z0-9 ]')
         self.__stemmer = nltk.stem.SnowballStemmer("english", ignore_stopwords=True)
-        # self.__stemmer = nltk.stem.PorterStemmer()
-        # self.__stemmer = nltk.stem.LancasterStemmer()
         self.__lemmatizer = nltk.WordNetLemmatizer()
 
         default_stopwords = nltk.corpus.stopwords.words("english") 
@@ -39,7 +37,6 @@ class TextModel:
         phrase = self.__applyLemmatizer(phrase)
         phrase = self.__resolveNegation(phrase)
         phrase = self.__removeStopwords(phrase)
-        # phrase = self.__posTag(phrase)
         return phrase
 
     def __normalizeText(self, phrase):
@@ -69,29 +66,4 @@ class TextModel:
         words = nltk.word_tokenize(phrase)
         new_words = mark_negation(words)
         new_phrase = ' '.join(new_words)
-        return new_phrase
-
-    def __posTag(self, phrase):
-        words_with_neg = phrase.split(" ")
-        words_without_neg = [word.replace('_NEG', '') for word in words_with_neg]
-        words_tagged = nltk.pos_tag(words_without_neg)
-
-        phrase_size = len(words_with_neg)
-
-        ignored_tags = ["WDT", "CC", "DET", "CD", "PRP", "PRP$", "PDT", "SYM", ".", "X", "WP", "WP$", "WRB"]
-        new_words = []
-
-        for index in range(phrase_size):
-            word_with_neg = words_with_neg[index]
-            word_tagged = words_tagged[index]
-
-            tag =  word_tagged[1]
-
-            if tag not in ignored_tags:
-                new_words.append(word_with_neg)
-            # else:
-            #     print(word_tagged)
-
-        new_phrase = ' '.join(new_words)
-
         return new_phrase
