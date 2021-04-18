@@ -19,7 +19,7 @@ class ResponseProcessController:
             if not message:
                 return Response.badRequest('Missing param: Message')
 
-            emotion = body.get('message')
+            emotion = body.get('emotion')
 
             if not emotion:
                 return Response.badRequest('Missing param: Emotion')
@@ -31,5 +31,5 @@ class ResponseProcessController:
             }
 
             return Response.success(result)
-        except ValueError:
-            return Response.serverError(ValueError)
+        except Exception as error:
+            return Response.serverError(error)
