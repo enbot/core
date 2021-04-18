@@ -8,25 +8,29 @@ class Response:
     def success(data):
         return jsonify(
             {
-                'status': 200,
+                'success': True,
                 'data': data
             }
-        )
+        ) , 200
 
     @staticmethod
     def serverError(error):
         return jsonify(
             {
-                'status': 500,
-                'error': error
+                'success': False,
+                'errors': [
+                    error
+                ]
             }
-        )
+        ) , 500
 
     @staticmethod
     def badRequest(error):
         return jsonify(
             {
-                'status': 400,
-                'error': error
+                'success': False,
+                'errors': [
+                    error
+                ]
             }
-        )
+        ) , 400
