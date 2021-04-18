@@ -1,4 +1,4 @@
-class PredictService:
+class EmotionPredictService:
 
     def __init__(self, dataset_model, emotion_model, text_model):
         self.__dataset_model = dataset_model

@@ -2,15 +2,16 @@ from helpers.http.request import Request
 from helpers.http.response import Response
 
 
-class PredictController:
+class EmotionPredictController:
 
     def __init__(self, service):
         database = service.readTrainingData()
         datasets = service.createTrainingDataset(database)
-        model = service.createTrainingModel(datasets)
+        # model = service.createTrainingModel(datasets)
         self.__training_database = database
         self.__training_datasets = datasets
-        self.__training_model = model
+        # self.__training_model = model
+        self.__training_model = None
         self.__service = service
 
     def handle(self):
@@ -35,8 +36,8 @@ class PredictController:
             }
 
             return Response.success(response)
-        except ValueError:
-            return Response.serverError(ValueError)
+        except Exception as error:
+            return Response.serverError(error)
 
     def __getPrediction(self, message):
         training_datasets = self.__training_datasets

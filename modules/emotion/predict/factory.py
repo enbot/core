@@ -1,8 +1,8 @@
 from models.emotion import EmotionModel
 from models.dataset import DatasetModel
 from models.text import TextModel
-from modules.emotion.predict.controller import PredictController
-from modules.emotion.predict.service import PredictService
+from modules.emotion.predict.controller import EmotionPredictController
+from modules.emotion.predict.service import EmotionPredictService
 
 
 class EmotionPredictFactory:
@@ -12,6 +12,6 @@ class EmotionPredictFactory:
         dataset_model = DatasetModel()
         emotion_model = EmotionModel()
         text_model = TextModel()
-        service = PredictService(dataset_model, emotion_model, text_model)
-        controller = PredictController(service)
+        service = EmotionPredictService(dataset_model, emotion_model, text_model)
+        controller = EmotionPredictController(service)
         return controller
