@@ -6,5 +6,10 @@ class ResponseRouter:
     def __init__(self):
         self.__responseProcessController = ResponseProcessFactory.assemble()
 
-    def route(self, app):
-        app.route('/api/response', methods=['POST'])(self.__responseProcessController.handle)
+    def router(self):
+        return {
+            "module": "response",
+            "routes": [
+                { "method" : "POST", "route" : "/response", "handler": self.__responseProcessController.handle }
+            ]
+        }

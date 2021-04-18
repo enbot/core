@@ -1,3 +1,4 @@
+from flask import Blueprint
 from flask import Flask
 from modules.emotion.router import EmotionRouter
 from modules.response.router import ResponseRouter
@@ -7,7 +8,7 @@ class Server:
 
     def __init__(self):
         self.__app = Flask(__name__)
-        self.__routes = [
+        self.__modules = [
             EmotionRouter,
             ResponseRouter,
         ]
@@ -21,8 +22,13 @@ class Server:
 
     def startRoutes(self):
         app = self.__app
-        routes = self.__routes
+        modules = self.__modules
 
-        for Module in routes:
-            Module().route(app)
+        for Module in modules:
+            router = Module().router()
+            blueprint = Blueprint(router["module"], __name__)
 
+            for route in router["routes"]:
+                blueprint.route(route["route"], methods=[route["method"]])(route["handler"])
+
+            app.register_blueprint(blueprint, url_prefix='/api')

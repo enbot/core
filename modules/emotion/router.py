@@ -6,5 +6,10 @@ class EmotionRouter:
     def __init__(self):
         self.__emotionController = EmotionPredictFactory.assemble()
 
-    def route(self, app):
-        app.route('/api/emotions', methods=['POST'])(self.__emotionController.handle)
+    def router(self):
+        return {
+            "module": "emotion",
+            "routes": [
+                { "method" : "POST", "route" : "/emotions", "handler": self.__emotionController.handle }
+            ]
+        }
