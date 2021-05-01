@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="1.0.1" encoding="UTF-8">
-    <category>
-        <pattern> * </pattern>
-        <template>I really dont like this.</template>
-    </category>
+    <topic name="ANGER">
+        <category>
+            <pattern> * </pattern>
+            <template> I'm too angry to think. </template>
+        </category>
+    </topic>
 </aiml>

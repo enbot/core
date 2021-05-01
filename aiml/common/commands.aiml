@@ -1,51 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="1.0.1" encoding="UTF-8">
     <category>
-        <pattern>TURN YOUR EMOTION INTO JOY</pattern>
+        <pattern> TURN YOUR EMOTION INTO JOY </pattern>
         <template>
             <think>
-                <set name="state">joy</set>
+                <set name="topic">JOY</set>
             </think>
+            I feel in a good mood for some reason.
         </template>
     </category>
     <category>
-        <pattern>TURN YOUR EMOTION INTO SADNESS</pattern>
+        <pattern> TURN YOUR EMOTION INTO SADNESS </pattern>
         <template>
             <think>
-                <set name="state">sadness</set>
+                <set name="topic">SADNESS</set>
             </think>
+            The day looks very sad to me.
         </template>
     </category>
     <category>
-        <pattern>TURN YOUR EMOTION INTO LOVE</pattern>
+        <pattern> TURN YOUR EMOTION INTO LOVE </pattern>
         <template>
             <think>
-                <set name="state">love</set>
+                <set name="topic">LOVE</set>
             </think>
+            Love spreads through my robotic body.
         </template>
     </category>
     <category>
-        <pattern>TURN YOUR EMOTION INTO SURPRISE</pattern>
+        <pattern> TURN YOUR EMOTION INTO SURPRISE </pattern>
         <template>
             <think>
-                <set name="state">surprise</set>
+                <set name="topic">SURPRISE</set>
             </think>
+            What? this is surprising!
         </template>
     </category>
     <category>
-        <pattern>TURN YOUR EMOTION INTO FEAR</pattern>
+        <pattern> TURN YOUR EMOTION INTO FEAR </pattern>
         <template>
             <think>
-                <set name="state">fear</set>
+                <set name="topic">FEAR</set>
             </think>
+            This is scary. I'm afraid.
         </template>
     </category>
     <category>
-        <pattern>TURN YOUR EMOTION INTO ANGER</pattern>
+        <pattern> TURN YOUR EMOTION INTO ANGER </pattern>
         <template>
             <think>
-                <set name="state">anger</set>
+                <set name="topic">ANGER</set>
             </think>
+            My robotic brain burns with rage.
         </template>
     </category>
 </aiml>
