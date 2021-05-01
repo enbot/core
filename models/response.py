@@ -16,4 +16,4 @@ class ResponseModel:
         self.__current_emotion = emotion
 
     def getResponse(self, message):
-        self.__kernel.respond(message)
+        return self.__kernel.respond(message)
