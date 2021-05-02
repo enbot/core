@@ -14,12 +14,12 @@ class Response:
         ) , 200
 
     @staticmethod
-    def serverError(error):
+    def serverError():
         return jsonify(
             {
                 'success': False,
                 'errors': [
-                    error
+                    'Internal server error'
                 ]
             }
         ) , 500
