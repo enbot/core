@@ -7,11 +7,10 @@ class EmotionPredictController:
     def __init__(self, service):
         database = service.readTrainingData()
         datasets = service.createTrainingDataset(database)
-        # model = service.createTrainingModel(datasets)
+        model = service.createTrainingModel(datasets)
         self.__training_database = database
         self.__training_datasets = datasets
-        # self.__training_model = model
-        self.__training_model = None
+        self.__training_model = model
         self.__service = service
 
     def handle(self):
@@ -27,17 +26,18 @@ class EmotionPredictController:
                 return Response.badRequest('Missing param: Message')
 
             prediction = self.__getPrediction(message)
-            result = self.__getResult(prediction)
+            categorization = self.__getCategorization(prediction)
+            classification = self.__getClassification(prediction)
 
             response = {
-                "message": message,
                 "prediction": prediction,
-                "result": result,
+                "categorization": categorization,
+                "classification": classification,
             }
 
             return Response.success(response)
-        except Exception as error:
-            return Response.serverError(error)
+        except:
+            return Response.serverError()
 
     def __getPrediction(self, message):
         training_datasets = self.__training_datasets
@@ -55,8 +55,8 @@ class EmotionPredictController:
 
         return predictions
 
-    def __getResult(self, prediction):
-        result_emotion = ''
+    def __getCategorization(self, prediction):
+        result_emotion = ""
         result_percentage = 0
 
         for prediction_emotion in prediction:
@@ -66,3 +66,19 @@ class EmotionPredictController:
                 result_percentage = prediction_percentage
 
         return result_emotion
+
+    def __getClassification(self, categorization):
+        classifications = {
+            categorization["surprise"] + categorization["fear"]: "neutral",
+            categorization["joy"] + categorization["love"]: "positive",
+            categorization["anger"] + categorization["sadness"]: "negative",
+        }
+
+        classification = max(classifications)
+        amount = classifications.get(max(classifications))
+
+        return {
+            "classifications": classifications, 
+            "classification": classification, 
+            "amount": amount, 
+        }
