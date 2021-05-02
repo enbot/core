@@ -3,7 +3,7 @@
     <topic name="JOY">
         <category>
             <pattern> * </pattern>
-            <template> It looks funny. </template>
+            <template> It makes me happy. </template>
         </category>
     </topic>
 </aiml>
