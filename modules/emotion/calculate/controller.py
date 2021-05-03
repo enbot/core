@@ -5,7 +5,7 @@ from helpers.http.response import Response
 class EmotionCalculateController:
 
     def __init__(self, service):
-        pass
+        self.__service = service
 
     def handle(self):
         try:
@@ -19,22 +19,19 @@ class EmotionCalculateController:
             if not current:
                 return Response.badRequest('Missing param: Current')
 
-            classification = body.get('classification')
+            new = body.get('new')
 
-            if not classification:
-                return Response.badRequest('Missing param: Classification')
+            if not new:
+                return Response.badRequest('Missing param: New')
 
-            amount = body.get('amount')
-
-            if not amount:
-                return Response.badRequest('Missing param: Amount')
+            calculation = self.__service.calculateNewCurrent(current, new)
+            emotion = self.__service.getHighestSetValue(calculation)
 
             result = {
-                "current": current,
-                "classification": classification,
-                "amount": amount,
+                "calculation": calculation,
+                "emotion" : emotion
             }
 
-            return Response.success('response')
+            return Response.success(result)
         except:
             return Response.serverError()
