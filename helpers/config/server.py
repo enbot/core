@@ -26,9 +26,9 @@ class Server:
 
         for Module in modules:
             router = Module().router()
-            blueprint = Blueprint(router["module"], __name__)
 
-            for route in router["routes"]:
+            for index in range(len(router["routes"])):
+                route = router["routes"][index]
+                blueprint = Blueprint(router["module"] + str(index), __name__)
                 blueprint.route(route["route"], methods=[route["method"]])(route["handler"])
-
-            app.register_blueprint(blueprint, url_prefix='/api')
+                app.register_blueprint(blueprint, url_prefix='/api')
