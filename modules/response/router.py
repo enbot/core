@@ -10,6 +10,6 @@ class ResponseRouter:
         return {
             "module": "response",
             "routes": [
-                { "method" : "POST", "route" : "/response", "handler": self.__responseProcessController.handle }
+                { "method" : "POST", "route" : "/response/process", "handler": self.__responseProcessController.handle },
             ]
         }
