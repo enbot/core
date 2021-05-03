@@ -31,5 +31,5 @@ class ResponseProcessController:
             }
 
             return Response.success(result)
-        except Exception as error:
-            return Response.serverError(error)
+        except:
+            return Response.serverError()
