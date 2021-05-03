@@ -25,12 +25,10 @@ class EmotionPredictController:
             if not message:
                 return Response.badRequest('Missing param: Message')
 
-            prediction = self.__getPrediction(message)
-            categorization = self.__getCategorization(prediction)
-            classification = self.__getClassification(prediction)
+            categorization = self.__getCategorization(message)
+            classification = self.__getClassification(categorization)
 
             response = {
-                "prediction": prediction,
                 "categorization": categorization,
                 "classification": classification,
             }
@@ -39,7 +37,7 @@ class EmotionPredictController:
         except:
             return Response.serverError()
 
-    def __getPrediction(self, message):
+    def __getCategorization(self, message):
         training_datasets = self.__training_datasets
         training_model = self.__training_model
         training_input = self.__service.createInputMessage(message, training_datasets)
@@ -55,30 +53,9 @@ class EmotionPredictController:
 
         return predictions
 
-    def __getCategorization(self, prediction):
-        result_emotion = ""
-        result_percentage = 0
-
-        for prediction_emotion in prediction:
-            prediction_percentage = prediction[prediction_emotion]
-            if prediction_percentage > result_percentage:
-                result_emotion = prediction_emotion
-                result_percentage = prediction_percentage
-
-        return result_emotion
-
     def __getClassification(self, categorization):
-        classifications = {
-            categorization["surprise"] + categorization["fear"]: "neutral",
-            categorization["joy"] + categorization["love"]: "positive",
-            categorization["anger"] + categorization["sadness"]: "negative",
-        }
-
-        classification = max(classifications)
-        amount = classifications.get(max(classifications))
-
         return {
-            "classifications": classifications, 
-            "classification": classification, 
-            "amount": amount, 
+            "neutral" : categorization["surprise"] + categorization["fear"],
+            "positive" : categorization["joy"] + categorization["love"],
+            "negative" : categorization["anger"] + categorization["sadness"],
         }
