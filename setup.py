@@ -8,5 +8,6 @@ setup(
         'nltk',
         'flask',
         'python-aiml',
+        'numpy',
     ],
 )
