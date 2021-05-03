@@ -1,3 +1,4 @@
 nltk=3.5
 flask=1.1.2
 python-aiml=0.9.3
+numpy=1.20.1
