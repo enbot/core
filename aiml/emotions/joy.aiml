@@ -2,6 +2,12 @@
 <aiml version="1.0.1" encoding="UTF-8">
     <topic name="JOY">
         <category>
+            <pattern> I AM * </pattern>
+            <template> 
+                Oh really? We should talk mmore about it.
+            </template>
+        </category>
+        <category>
             <pattern> * </pattern>
             <template> It makes me happy. </template>
         </category>

@@ -2,6 +2,12 @@
 <aiml version="1.0.1" encoding="UTF-8">
     <topic name="LOVE">
         <category>
+            <pattern> I AM * </pattern>
+            <template> 
+                Oh really? Tell me why you are <star index="1"/>.
+            </template>
+        </category>
+        <category>
             <pattern>*</pattern>
             <template> I'm in love with that. </template>
         </category>

@@ -2,6 +2,12 @@
 <aiml version="1.0.1" encoding="UTF-8">
     <topic name="SADNESS">
         <category>
+            <pattern> I AM * </pattern>
+            <template> 
+                Sorry, I'm a little sad to think that you are <star index="1"/> now.
+            </template>
+        </category>
+        <category>
             <pattern> * </pattern>
             <template> I'm not much to talk to right now. </template>
         </category>
