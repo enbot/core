@@ -24,11 +24,11 @@ class EmotionCalculateController:
             if not new:
                 return Response.badRequest('Missing param: New')
 
-            calculation = self.__service.calculateNewCurrent(current, new)
-            emotion = self.__service.getHighestSetValue(calculation)
+            categorization = self.__service.calculateNewCurrent(current, new)
+            emotion = self.__service.getHighestSetValue(categorization)
 
             result = {
-                "calculation": calculation,
+                "categorization": categorization,
                 "emotion" : emotion
             }
 
