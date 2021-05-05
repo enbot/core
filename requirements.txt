@@ -1,5 +1,5 @@
-nltk=3.5
-flask=1.1.2
-flask-cors=3.0.10
-python-aiml=0.9.3
-numpy=1.20.1
+nltk==3.5
+flask==1.1.2
+flask-cors==3.0.10
+python-aiml==0.9.3
+numpy==1.20.1
