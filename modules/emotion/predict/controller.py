@@ -18,12 +18,12 @@ class EmotionPredictController:
             body = Request.getBody()
 
             if not body:
-                return Response.badRequest('Missing param: JSON body')
+                return Response.badRequest('Missing param: body')
 
             message = body.get('message')
 
             if not message:
-                return Response.badRequest('Missing param: Message')
+                return Response.badRequest('Missing param: message')
 
             categorization = self.__getCategorization(message)
             classification = self.__getClassification(categorization)

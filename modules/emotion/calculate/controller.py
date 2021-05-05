@@ -12,17 +12,17 @@ class EmotionCalculateController:
             body = Request.getBody()
 
             if not body:
-                return Response.badRequest('Missing param: JSON body')
+                return Response.badRequest('Missing param: body')
 
             current = body.get('current')
 
             if not current:
-                return Response.badRequest('Missing param: Current')
+                return Response.badRequest('Missing param: current')
 
             new = body.get('new')
 
             if not new:
-                return Response.badRequest('Missing param: New')
+                return Response.badRequest('Missing param: new')
 
             categorization = self.__service.calculateNewCurrent(current, new)
             emotion = self.__service.getHighestSetValue(categorization)

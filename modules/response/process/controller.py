@@ -12,17 +12,17 @@ class ResponseProcessController:
             body = Request.getBody()
 
             if not body:
-                return Response.badRequest('Missing param: JSON body')
+                return Response.badRequest('Missing param: body')
 
             message = body.get('message')
 
             if not message:
-                return Response.badRequest('Missing param: Message')
+                return Response.badRequest('Missing param: message')
 
             emotion = body.get('emotion')
 
             if not emotion:
-                return Response.badRequest('Missing param: Emotion')
+                return Response.badRequest('Missing param: emotion')
 
             response = self.__service.getResponse(message, emotion)
 
