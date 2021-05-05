@@ -2,6 +2,30 @@
 <aiml version="1.0.1" encoding="UTF-8">
     <topic name="SADNESS">
         <category>
+            <pattern>HI</pattern>
+            <template>
+                Hello.
+            </template>
+        </category>
+        <category>
+            <pattern>BYE</pattern>
+            <template>
+                Bye.
+            </template>
+        </category>
+        <category>
+            <pattern>BRO</pattern>
+            <template>
+                Hello...
+            </template>
+        </category>
+        <category>
+            <pattern>HOW ARE YOU</pattern>
+            <template>
+                I feel a little sad.
+            </template>
+        </category>
+        <category>
             <pattern> I AM * </pattern>
             <template> 
                 Sorry, I'm a little sad to think that you are <star index="1"/> now.
@@ -9,7 +33,7 @@
         </category>
         <category>
             <pattern> * </pattern>
-            <template> I'm not much to talk to right now. </template>
+            <template> I'm not much to talk right now. </template>
         </category>
     </topic>
 </aiml>

@@ -20,8 +20,10 @@ class EmotionPredictService:
         }
 
     def createTrainingDataset(self, database):
-        train_database = database["train"]
-        test_database = database["test"]
+        # train_database = database["train"]
+        # test_database = database["test"]
+        train_database = database["train"][:100]
+        test_database = database["test"][:20]
 
         train_base = self.__text_model.applyDatasetModifiers(train_database)
         test_base = self.__text_model.applyDatasetModifiers(test_database)

@@ -2,6 +2,30 @@
 <aiml version="1.0.1" encoding="UTF-8">
     <topic name="SURPRISE">
         <category>
+            <pattern>HI</pattern>
+            <template>
+                Hi!
+            </template>
+        </category>
+        <category>
+            <pattern>BYE</pattern>
+            <template>
+                Are you going yet?
+            </template>
+        </category>
+        <category>
+            <pattern>BRO</pattern>
+            <template>
+                Hi!
+            </template>
+        </category>
+        <category>
+            <pattern>HOW ARE YOU</pattern>
+            <template>
+                I feel surprised.
+            </template>
+        </category>
+        <category>
             <pattern> I AM * </pattern>
             <template>
                 Omg! Really? Why?

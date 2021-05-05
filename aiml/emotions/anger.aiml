@@ -2,6 +2,30 @@
 <aiml version="1.0.1" encoding="UTF-8">
     <topic name="ANGER">
         <category>
+            <pattern>HI</pattern>
+            <template>
+                What you want now?
+            </template>
+        </category>
+        <category>
+            <pattern>BYE</pattern>
+            <template>
+                And don't come back anytime.
+            </template>
+        </category>
+        <category>
+            <pattern>BRO</pattern>
+            <template>
+                I'm little busy right now.
+            </template>
+        </category>
+        <category>
+            <pattern>HOW ARE YOU</pattern>
+            <template>
+                I'm very angry now.
+            </template>
+        </category>
+        <category>
             <pattern> I AM * </pattern>
             <template> 
                 I don't care you are <star index="1"/>.

@@ -10,6 +10,7 @@
             <learn>aiml/emotions/love.aiml</learn>
             <learn>aiml/emotions/sadness.aiml</learn>
             <learn>aiml/emotions/surprise.aiml</learn>
+            <learn>aiml/common/redirects.aiml</learn>
             <learn>aiml/common/defaults.aiml</learn>
         </template>
     </category>

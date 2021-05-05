@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="1.0.1" encoding="UTF-8">
     <category>
+        <pattern> UNIVERSITY </pattern>
+        <template>Do you study at Unisul? Nice!</template>
+    </category>
+    <category>
+        <pattern> MEU </pattern>
+        <template>I can't understand you accent!</template>
+    </category>
+    <category>
         <pattern> * </pattern>
         <template> Beep boop. </template>
     </category>
 </aiml>
-<!-- <?xml version="1.0" encoding="UTF-8"?>
-<aiml version="1.0.1" encoding="UTF-8">
-    <topic name="ANGER">
-        <category>
-            <pattern> * </pattern>
-            <template>Watching good ANGER refreshes our minds.</template>
-        </category>
-    </topic>
-    <category>
-        <pattern> FUCK </pattern>
-        <template>Yes <set name = "topic">ANGER</set></template>  
-    </category>
-</aiml> -->

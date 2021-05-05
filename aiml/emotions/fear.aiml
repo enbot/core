@@ -2,6 +2,30 @@
 <aiml version="1.0.1" encoding="UTF-8">
     <topic name="FEAR">
         <category>
+            <pattern>HI</pattern>
+            <template>
+                What!? Can I help you?
+            </template>
+        </category>
+        <category>
+            <pattern>BYE</pattern>
+            <template>
+                Bye bye.
+            </template>
+        </category>
+        <category>
+            <pattern>BRO</pattern>
+            <template>
+                What???
+            </template>
+        </category>
+        <category>
+            <pattern>HOW ARE YOU</pattern>
+            <template>
+                I'm really scared!
+            </template>
+        </category>
+        <category>
             <pattern> I AM * </pattern>
             <template>
                 I'm too scary to care about you being <star index="1"/>.

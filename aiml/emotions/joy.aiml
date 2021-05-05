@@ -2,6 +2,30 @@
 <aiml version="1.0.1" encoding="UTF-8">
     <topic name="JOY">
         <category>
+            <pattern>HI</pattern>
+            <template>
+                Hello, nice to meet you!
+            </template>
+        </category>
+        <category>
+            <pattern>BYE</pattern>
+            <template>
+                See you soon ;-)
+            </template>
+        </category>
+        <category>
+            <pattern>BRO</pattern>
+            <template>
+                Hello! Can I help you?
+            </template>
+        </category>
+        <category>
+            <pattern>HOW ARE YOU</pattern>
+            <template>
+                I'm really happy.
+            </template>
+        </category>
+        <category>
             <pattern> I AM * </pattern>
             <template> 
                 Oh really? We should talk mmore about it.
