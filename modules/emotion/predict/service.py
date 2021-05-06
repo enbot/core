@@ -6,7 +6,7 @@ class EmotionPredictService:
         self.__text_model = text_model
 
     def readTrainingData(self):
-        file_dir = '/data/emotionsDatasetForNlp/'
+        file_dir = 'data/emotionsDatasetForNlp/'
         test_file_name = 'test'
         train_file_name = 'train'
         file_extension = '.txt'
