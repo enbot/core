@@ -18,9 +18,6 @@ class Path:
 
     @staticmethod
     def read(path):
-        print('path')
-        print(path)
-        print(Path.resource(path))
         try:
             with open(Path.resource(path), 'r') as file:
                 return file.readlines()
