@@ -18,9 +18,18 @@ class Path:
 
     @staticmethod
     def read(path):
+        print('path')
+        print(path)
+        print(Path.resource(path))
         try:
-            with open(os.path.abspath(os.getcwd() + path), 'r') as file:
+            with open(Path.resource(path), 'r') as file:
                 return file.readlines()
         except IOError:
             print('IOError: system will exit now')
             sys.exit(1)
+
+    @staticmethod
+    def resource(path):
+        if hasattr(sys, '_MEIPASS'):
+            return os.path.join(sys._MEIPASS, path)
+        return os.path.join(os.path.abspath("."), path)
