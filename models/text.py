@@ -12,10 +12,9 @@ class TextModel:
         self.__lemmatizer = nltk.WordNetLemmatizer()
 
         default_stopwords = nltk.corpus.stopwords.words("english") 
-        custom_stopwords = ["feel", "wouldnt", "wont", "werent", "shouldnt", "shant", "neednt", "mustnt", "mightnt", "isnt", "havent", "hadnt", "hasnt", "hadnt", "doesnt", "couldnt", "arent", "aint", "shouldve", "shes", "her's", "youll", "youd", "youre", "ill", "mine", "didnt", "im", "ive", "ha", "dont", "wasnt", "wa"]
-        negation_stopwords = [word + "_NEG" for word in default_stopwords + custom_stopwords]   
+        custom_stopwords = ["wouldnt", "wont", "werent", "shouldnt", "shant", "neednt", "mustnt", "mightnt", "isnt", "havent", "hadnt", "hasnt", "hadnt", "doesnt", "couldnt", "arent", "aint", "shouldve", "shes", "her's", "youll", "youd", "youre", "ill", "mine", "didnt", "im", "ive", "ha", "dont", "wasnt", "wa"]
 
-        self.__stopwords = default_stopwords + custom_stopwords + negation_stopwords
+        self.__stopwords = default_stopwords + custom_stopwords
 
     def getDatasetUniqueWords(self, emotions_dataset):
         all_phrases = " ".join(phrase for (phrase, emotion) in emotions_dataset)
@@ -35,7 +34,6 @@ class TextModel:
         phrase = self.__normalizeText(phrase)
         phrase = self.__applyStemmer(phrase)
         phrase = self.__applyLemmatizer(phrase)
-        phrase = self.__resolveNegation(phrase)
         phrase = self.__removeStopwords(phrase)
         return phrase
 
@@ -59,11 +57,5 @@ class TextModel:
     def __applyLemmatizer(self, phrase):
         words = nltk.word_tokenize(phrase)
         new_words = [self.__lemmatizer.lemmatize(w) for w in words]
-        new_phrase = ' '.join(new_words)
-        return new_phrase
-
-    def __resolveNegation(self, phrase):
-        words = nltk.word_tokenize(phrase)
-        new_words = mark_negation(words)
         new_phrase = ' '.join(new_words)
         return new_phrase
