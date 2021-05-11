@@ -10,7 +10,6 @@ class EmotionCalculateService:
         new_highest_emotion_name = new_highest_emotion["name"]
         new_highest_emotion_amount = new_highest_emotion["amount"]
         current_highest_emotion_name = current_highest_emotion["name"]
-        current_highest_emotion_amount = current_highest_emotion["amount"]
 
         new_highest_emotion_amount_sigmoid = self.__math_model.sigmoid(new_highest_emotion_amount)
 
