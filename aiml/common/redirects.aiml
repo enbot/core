@@ -234,4 +234,22 @@
             <srai>HOW ARE YOU</srai>
         </template>
     </category>
+    <category>
+        <pattern>* UNISUL</pattern>
+        <template>
+            <srai>UNISUL</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>UNISUL *</pattern>
+        <template>
+            <srai>UNISUL</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>* UNISUL *</pattern>
+        <template>
+            <srai>UNISUL</srai>
+        </template>
+    </category>
 </aiml>

@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aiml version="1.0.1" encoding="UTF-8">
     <category>
-        <pattern> UNIVERSITY </pattern>
+        <pattern>UNISUL</pattern>
         <template>Do you study at Unisul? Nice!</template>
-    </category>
-    <category>
-        <pattern> MEU </pattern>
-        <template>I can't understand you accent!</template>
-    </category>
-    <category>
-        <pattern> * </pattern>
-        <template> Beep boop. </template>
     </category>
 </aiml>

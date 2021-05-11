@@ -3,6 +3,7 @@
     <category>
         <pattern> LOAD AIML B </pattern>
         <template>
+            <learn>aiml/common/defaults.aiml</learn>
             <learn>aiml/common/commands.aiml</learn>
             <learn>aiml/emotions/anger.aiml</learn>
             <learn>aiml/emotions/fear.aiml</learn>
@@ -11,7 +12,6 @@
             <learn>aiml/emotions/sadness.aiml</learn>
             <learn>aiml/emotions/surprise.aiml</learn>
             <learn>aiml/common/redirects.aiml</learn>
-            <learn>aiml/common/defaults.aiml</learn>
         </template>
     </category>
 </aiml>
