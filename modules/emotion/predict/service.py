@@ -40,9 +40,8 @@ class EmotionPredictService:
 
     def createTrainingModel(self, datasets):
         train_dataset = datasets["train"]
-        test_dataset = datasets["test"]
 
-        training_model = self.__emotion_model.createTrainingModel(train_dataset, test_dataset)
+        training_model = self.__emotion_model.createTrainingModel(train_dataset)
 
         return training_model
 

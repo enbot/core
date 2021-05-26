@@ -1,4 +1,5 @@
 import nltk
+from nltk.classify.util import accuracy
 
 
 class EmotionModel:
@@ -15,11 +16,9 @@ class EmotionModel:
         training_input = find_features_function(input_words)
         return training_input
 
-    def createTrainingModel(self, complete_train_dataset, complete_test_dataset):
+    def createTrainingModel(self, complete_train_dataset):
         training_model = nltk.NaiveBayesClassifier.train(complete_train_dataset)
-        print(training_model.labels())
         print(training_model.show_most_informative_features(40))
-        print(nltk.classify.accuracy(training_model, complete_test_dataset))
         return training_model
 
     def __getFindFeaturesFunction(self, unique_words):
