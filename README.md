@@ -26,7 +26,7 @@ pip install pyinstaller
 
 After the installation run the following command to create a bundle of this project:
 ```bash
-pyinstaller app.py --name core --clean --add-data data;data
+pyinstaller app.py --name core --clean --add-data data;data --add-data aiml;aiml
 ```
 
 ## Contributing
