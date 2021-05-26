@@ -1,8 +1,6 @@
 import nltk
 import re
 
-from nltk.sentiment.util import mark_negation
-
 
 class TextModel:
 
@@ -10,10 +8,8 @@ class TextModel:
         self.__allowed_characters = re.compile('[^a-zA-Z0-9 ]')
         self.__stemmer = nltk.stem.SnowballStemmer("english", ignore_stopwords=True)
         self.__lemmatizer = nltk.WordNetLemmatizer()
-
         default_stopwords = nltk.corpus.stopwords.words("english") 
         custom_stopwords = ["wouldnt", "wont", "werent", "shouldnt", "shant", "neednt", "mustnt", "mightnt", "isnt", "havent", "hadnt", "hasnt", "hadnt", "doesnt", "couldnt", "arent", "aint", "shouldve", "shes", "her's", "youll", "youd", "youre", "ill", "mine", "didnt", "im", "ive", "ha", "dont", "wasnt", "wa"]
-
         self.__stopwords = default_stopwords + custom_stopwords
 
     def getDatasetUniqueWords(self, emotions_dataset):

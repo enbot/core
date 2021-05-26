@@ -22,7 +22,6 @@ class Path:
             with open(Path.resource(path), 'r') as file:
                 return file.readlines()
         except IOError:
-            print('IOError: system will exit now')
             sys.exit(1)
 
     @staticmethod

@@ -30,7 +30,6 @@ class Server:
 
         for Module in modules:
             router = Module().router()
-
             for index in range(len(router["routes"])):
                 route = router["routes"][index]
                 blueprint = Blueprint(router["module"] + str(index), __name__)

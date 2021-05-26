@@ -1,5 +1,4 @@
 import nltk
-from nltk.classify.util import accuracy
 
 
 class EmotionModel:

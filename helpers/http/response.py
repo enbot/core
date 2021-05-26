@@ -1,4 +1,3 @@
-from flask import render_template
 from flask import jsonify
 
 
@@ -11,7 +10,7 @@ class Response:
                 'success': True,
                 'data': data
             }
-        ) , 200
+        ), 200
 
     @staticmethod
     def serverError():
@@ -22,7 +21,7 @@ class Response:
                     'Internal server error'
                 ]
             }
-        ) , 500
+        ), 500
 
     @staticmethod
     def badRequest(error):
@@ -33,4 +32,4 @@ class Response:
                     error
                 ]
             }
-        ) , 400
+        ), 400

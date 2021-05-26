@@ -12,11 +12,8 @@ class MathModel:
         def check_float(y):
             try:
                 float(y)
-
                 return True
             except ValueError:
                 return False
-
         target = float(x) if check_float(x) else 0.0
-
         return target
