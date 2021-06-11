@@ -33,5 +33,4 @@ pyinstaller app.py --name core --clean --add-data data;data --add-data aiml;aiml
 This application is part of a undergraduate thesis, and the projects will be read-only after they are completed. Unfortunately, no contributions will be accepted.
 
 ## License
-## License
 The project code is under [MIT](https://github.com/enbot/core/blob/master/LICENSE) license, except for the used dataset that is under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
